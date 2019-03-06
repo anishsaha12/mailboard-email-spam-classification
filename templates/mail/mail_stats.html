@@ -1,0 +1,254 @@
+{% extends 'mailboard/base.html' %}
+{% load static %}
+
+{% block content %}
+
+		<div class="grid_1">
+			<h4>Email from Domains</h4>
+			<!-- <canvas id="bar1" height="250" width="1400" style="width: -webkit-fill-available; height: 100px;"></canvas> -->
+			<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+		</div>
+		
+		<div class="grid_1" style="margin-top:  25px;">
+			<h4>Email Count</h4>
+			<div id="lineContainer" style="height: 370px; width: 100%;"></div>
+		</div>
+
+		<div class="grid_1" style="margin-top:  25px;">			
+			<div class="xs tabls">
+					<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+						<div class="panel-heading">
+							<h2>Email Phishing Analysis</h2>
+							<div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+						</div>
+						<div class="panel-body no-padding" style="display: block;">
+							<table class="table table-striped">
+								<thead>
+									<tr class="warning">
+										<th>Datetime</th>
+										<th>Employee</th>
+										<th>Mail</th>
+										<th>Body</th>
+										<th>Attachment</th>
+										<th>Classification</th>
+										<th>Domain</th>
+										<th>Reverse Lookup</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for mail, phish in mail_phis %}
+									<tr>
+										<td>{{ mail.received_at }}</td>
+										<td>
+											<div class="profile_img">	
+												<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+													<p style="padding-left: 40px;">{{ mail.mail_of_emp.first_name }}</p>
+													<!-- <p style="padding-left: 40px;">{{ employee.first_name }}</p> -->
+												</span> 
+											</div>
+										</td>
+										<td>
+											<div style="margin-left: 10px; padding:5px;border-radius: 4px;border: solid white thin;background: white;box-shadow: 2px 2px 8px 1px lightgrey;">
+												<b>{{ mail.subject }}</b>
+												<p class="truncate grey-text ultra-small">From: {{ mail.mail_from_id }}</p>
+												<p class="truncate grey-text ultra-small">To: {{ mail.mail_to }}</p>
+											</div>
+										</td>
+										<td>{{ mail.body }}...</td>
+										<td>1</td>
+										{% if phish == 'Phishing' %}
+											<td style="color:red;font-weight: bold;">Phishing</td>
+										{% else %}
+											<td>{{ phish }}</td>
+										{% endif %}
+										<td>outlook.com</td>
+										<td>outlook.com</td>
+										<td>Secure SMTP</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td>2018-08-31 09:21</td>
+										<td>
+											<div class="profile_img">	
+												<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+													<p style="padding-left: 40px;">Shubham Gupta</p>
+												</span> 
+											</div>
+										</td>
+										<td>
+											<div style="margin-left: 10px; padding:5px;border-radius: 4px;border: solid white thin;background: white;box-shadow: 2px 2px 8px 1px lightgrey;">
+												<b>Training New Employees</b>
+												<p class="truncate grey-text ultra-small">From: Jackson Gollan</p>
+												<p class="truncate grey-text ultra-small">To: shubham.gupta@gmail.com</p>
+											</div>
+										</td>
+										<td>Dear Team, Managing new employees takes time, patience, a...</td>
+										<td>1</td>
+										<td>Official - Employment</td>
+										<td>outlook.com</td>
+										<td>outlook.com</td>
+										<td>Secure SMTP</td>
+									</tr>
+									<tr>
+										<td>2018-08-27 06:35/td>
+										<td>
+											<div class="profile_img">	
+												<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+													<p style="padding-left: 40px;">Anish Saha</p>
+												</span> 
+											</div>
+										</td>
+										<td>
+											<div style="margin-left: 10px; padding:5px;border-radius: 4px;border: solid white thin;background: white;box-shadow: 2px 2px 8px 1px lightgrey;">
+												<b>SYSTEM BREAKDOWN</b>
+												<p class="truncate grey-text ultra-small">From: anishsaha12@gmail.com</p>
+												<p class="truncate grey-text ultra-small">To: t.cook78@outlook.com</p>
+											</div>
+										</td>
+										<td>Hello Team, I received a news from H.R department. Yo...</td>
+										<td>1</td>
+										<td>Official - Employment</td>
+										<td>outlook.com</td>
+										<td>outlook.com</td>
+										<td>Secure SMTP</td>
+									</tr>
+									<tr>
+										<td>2018-08-31 09:21</td>
+										<td>
+											<div class="profile_img">	
+												<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+													<p style="padding-left: 40px;">Smruti Chourasia</p>
+												</span> 
+											</div>
+										</td>
+										<td>
+											<div style="margin-left: 10px; padding:5px;border-radius: 4px;border: solid white thin;background: white;box-shadow: 2px 2px 8px 1px lightgrey;">
+												<b>We think you might like these Pins</b>
+												<p class="truncate grey-text ultra-small">From: Jackson Gollan</p>
+												<p class="truncate grey-text ultra-small">To: smruti.chourasia@gmail.com</p>
+											</div>
+										</td>
+										<td>We found some fresh Pins for you 1518682329 thenleti...</td>
+										<td>1</td>
+										<td style="color:red;font-weight: bold;">Password Phishing</td>
+										<td>cznshuya.ivnet.ru</td>
+										<td>hosting.ivnet.ru</td>
+										<td>Compromized site loads external script with exploits</td>
+									</tr>
+									<tr>
+										<td>2018-08-31 09:21</td>
+										<td>
+											<div class="profile_img">	
+												<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+													<p style="padding-left: 40px;">Anish Saha</p>
+												</span> 
+											</div>
+										</td>
+										<td>
+											<div style="margin-left: 10px; padding:5px;border-radius: 4px;border: solid white thin;background: white;box-shadow: 2px 2px 8px 1px lightgrey;">
+												<b>New Product Research</b>
+												<p class="truncate grey-text ultra-small">From: anishsaha12@gmail.com</p>
+												<p class="truncate grey-text ultra-small">To: swoodly17@yahoo.com</p>
+											</div>
+										</td>
+										<td>Dear Raphael,Hi I just want to share my research regarding New produ...</td>
+										<td>1</td>
+										<td style="color:red; font-weight: bold;">Spam</td>
+										<td>revistaelite.com</td>
+										<td>box116.bluehost.com</td>
+										<td>Redirects to Rogue if referer is a search engine</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			
+		</div>
+
+		<script type="text/javascript" src="{% static 'js/jquery.canvasjs.min.js' %}"></script>
+		<script>
+			window.onload = function () {
+				var options = {
+				animationEnabled: true,
+				title: {
+					text: "Number per domain (week)"
+				},
+				axisY: {
+					title: "Number (in %)",
+					suffix: "%",
+					includeZero: false
+				},
+				axisX: {
+					title: "Domains"
+				},
+				data: [{
+					type: "column",
+					yValueFormatString: "#,##0.0#"%"",
+					dataPoints: [
+						{ label: "soffice.bin", y: 15 },	
+						{ label: "google.com", y: 13 },	
+						{ label: "faceebok.com", y: 12 },
+						{ label: "outlook.com", y: 9 },	
+						{ label: "edition.cnn.com", y: 7 },
+						{ label: "skidki-yuga.ru", y: 1.5 },
+						{ label: "youtube.com", y: 7.56 },
+						{ label: "kalantzis.net", y: 2.0 },
+						{ label: "espdesign.com.au", y: 1.3 },
+						{ label: "vocational-training.us", y: 2 },
+						{ label: "bbc.com", y: 7.20 },
+						{ label: "dwm.com", y: 7.1 },
+						{ label: "amazon-sicherheit.kunden-ueberpruefung.xyz", y: 3 },
+						{ label: "stork.escortfinder.cl", y: 1 },
+						{ label: "smartscan.ro", y: 1.5 }
+					]
+				}]
+			};
+			$("#chartContainer").CanvasJSChart(options);
+
+				var chart = new CanvasJS.Chart("lineContainer", {
+					animationEnabled: true,
+					theme: "light2",
+					
+					axisY: {
+						title: "Number of Mails",
+						includeZero: true
+					},
+					axisX: {
+						title: "Date"
+					},
+					data: [{        
+						type: "line", 
+						showInLegend: true,
+						name: "Incoming",       
+						dataPoints: [
+							{ label: "2018-08-23",y: 386 },
+							{ label: "2018-08-24",y: 6 },
+							{ label: "2018-08-25",y: 49 },
+							{ label: "2018-08-26",y: 53 },
+							{ label: "2018-08-27",y: 191 },
+							{ label: "2018-08-28",y: 50 },
+							{ label: "2018-08-29",y: 1 },
+						]
+					},{        
+						type: "line",   
+						showInLegend: true,
+						name: "Outoing",    
+						dataPoints: [
+							{ label: "2018-08-23",y: 37 },
+							{ label: "2018-08-24",y: 5 },
+							{ label: "2018-08-25",y: 5 },
+							{ label: "2018-08-26",y: 7 },
+							{ label: "2018-08-27",y: 33 },
+							{ label: "2018-08-28",y: 10 },
+							{ label: "2018-08-29",y: 2 },
+						]
+					}]
+				});
+				chart.render();
+			}
+		</script>
+		<script type="text/javascript" src="{% static 'js/canvasjs.min.js' %}"></script>
+		
+		{% endblock %}

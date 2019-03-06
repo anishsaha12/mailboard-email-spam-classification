@@ -1,0 +1,75 @@
+{% extends 'mailboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="xs tabls">
+        <div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+            <div class="panel-heading">
+                <h2>Employee Log</h2>
+                <div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+            </div>
+            <div class="panel-body no-padding" style="display: block;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="warning">
+                            <th>Employee</th>
+                            <th>Computer</th>
+                            <th>Current Post</th>
+                            <th>Incoming Mails</th>
+                            <th>Outgoing Mails</th>
+                            <th>Web Uploads</th>
+                            <th>Email Attach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="profile_img">	
+                                    <span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+                                        <p style="padding-left: 40px;">Shubham Gupta</p>
+                                    </span> 
+                                </div>
+                            </td>
+                            <td>WIN-040FJCH5GVH</td>
+                            <td>General Manager</td>
+                            <td>104</td>
+                            <td>87</td>
+                            <td>2 - .docx .csv</td>
+                            <td>54</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="profile_img">	
+                                    <span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+                                        <p style="padding-left: 40px;">Anish Saha</p>
+                                    </span> 
+                                </div>
+                            </td>
+                            <td>WIN-035KHO1R8PE</td>
+                            <td>Administrator</td>
+                            <td>237</td>
+                            <td>192</td>
+                            <td>4 - .ini .sh .exe .py</td>
+                            <td>105</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="profile_img">	
+                                    <span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+                                        <p style="padding-left: 40px;">Smruti Chourasia</p>
+                                    </span> 
+                                </div>
+                            </td>
+                            <td>WIN-068KTYC67GFI</td>
+                            <td>Business Analytics Head</td>
+                            <td>301</td>
+                            <td>405</td>
+                            <td>3 - .pptx .doc .csv</td>
+                            <td>68</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

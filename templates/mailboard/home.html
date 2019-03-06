@@ -1,0 +1,291 @@
+{% extends 'mailboard/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="col_3">
+	<div class="col-md-3 widget widget1">
+		<div class="r3_counter_box">
+			<i class="fa fa-mail-forward"></i>
+			<div class="stats">
+				<h5>45 <span>% <i>in mail domains</i></span></h5>
+				<div class="grow">
+				<p>Growth</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 widget widget1">
+		<div class="r3_counter_box">
+			<i class="fa fa-users"></i>
+			<div class="stats">
+				<h5>50 <span>% <i>since last month</i></span></h5>
+				<div class="grow grow1">
+				<p>New Users</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 widget widget1">
+		<div class="r3_counter_box">
+			<i class="fa fa-eye"></i>
+			<div class="stats">
+				<h5>70 <span>%  <i>outer domains sent</i></span></h5>
+				<div class="grow grow3">
+				<p>Visitors</p>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="col-md-3 widget">
+		<div class="r3_counter_box">
+			<i class="fa fa-usd"></i>
+			<div class="stats">
+				<h5>70 <span>% <i>inncrease over last year</i></span></h5>
+				<div class="grow grow2">
+				<p>Profit</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+</div>
+
+<div class="xs tabls">
+	<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+		<div class="panel-heading">
+			<h2>Employee Log</h2>
+			<div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+		</div>
+		<div class="panel-body no-padding" style="display: block;">
+			<table class="table table-striped">
+				<thead>
+					<tr class="warning">
+						<th>Employee</th>
+						<th>Computer</th>
+						<th>Current Post</th>
+						<th>Incoming Mails</th>
+						<th>Outgoing Mails</th>
+						<th>Web Uploads</th>
+						<th>Email Attach</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="profile_img">	
+								<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+									<p style="padding-left: 40px;">Shubham Gupta</p>
+								</span> 
+							</div>
+						</td>
+						<td>WIN-040FJCH5GVH</td>
+						<td>General Manager</td>
+						<td>104</td>
+						<td>87</td>
+						<td>2 - .docx .csv</td>
+						<td>54</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="profile_img">	
+								<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+									<p style="padding-left: 40px;">Anish Saha</p>
+								</span> 
+							</div>
+						</td>
+						<td>WIN-035KHO1R8PE</td>
+						<td>Administrator</td>
+						<td>237</td>
+						<td>192</td>
+						<td>4 - .ini .sh .exe .py</td>
+						<td>105</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="profile_img">	
+								<span style="background:url({% static 'images/user.png'%}) no-repeat center;">
+									<p style="padding-left: 40px;">Smruti Chourasia</p>
+								</span> 
+							</div>
+						</td>
+						<td>WIN-068KTYC67GFI</td>
+						<td>Business Analytics Head</td>
+						<td>301</td>
+						<td>405</td>
+						<td>3 - .pptx .doc .csv</td>
+						<td>68</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- switches -->
+<div class="switches">
+<div class="col-4">
+<div class="col-md-4 switch-right">
+<div class="switch-right-grid">
+	<div class="switch-right-grid1">
+		<h3>TODAY'S STATS</h3>
+		<p>These are parsed from the Emails.</p>
+		<ul>
+			<li>Earning: $400 USD</li>
+			<li>Items Sold: 20 Items</li>
+			<li>Last Hour Sales: $34 USD</li>
+		</ul>
+	</div>
+</div>
+<div class="sparkline">
+	<canvas id="line" height="150" width="480" style="width: 480px; height: 150px;"></canvas>
+		<script>
+				var lineChartData = {
+					labels : ["Mon","Tue","Wed","Thu","Fri","Sat","Mon"],
+					datasets : [
+						{
+							fillColor : "#fff",
+							strokeColor : "#F44336",
+							pointColor : "#fbfbfb",
+							pointStrokeColor : "#F44336",
+							data : [20,35,45,30,10,65,40]
+						}
+					]
+					
+				};
+				new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+		</script>
+</div>
+</div>
+<div class="col-md-4 switch-right">
+<div class="switch-right-grid" style="padding:5px;">
+	<div class="switch-right-grid1">
+		<h3>PRODUCTIVITY METRICS</h3>
+		<p>2018-08-29 to 20108-09-01</p>
+	</div>
+
+
+<div class="table-responsive" style="padding-top:50px;">
+		<table class="table table-bordered">
+		  <thead>
+			<tr>
+			  <th>Department</th>
+			  <th>Activity</th>
+			  <th>Emails</th>
+			  <th>Email Domain</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row" style="color:brown;">Management</th>
+			  <td>37%</td>
+			  <td>237</td>
+			  <td>57</td>
+			</tr>
+			<tr>
+			  <th scope="row" style="color:brown;">IT</th>
+			  <td>53%</td>
+			  <td>107</td>
+			  <td>73</td>
+			</tr>
+			<tr>
+			  <th scope="row" style="color:brown;">Sales</th>
+			  <td>32%</td>
+			  <td>315</td>
+			  <td>30</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+</div>
+<div class="col-md-4 switch-right">
+<div class="switch-right-grid">
+	<div class="switch-right-grid1">
+		<h3>ALLTIME STATS</h3>
+		<p>Email parsed stats and verified</p>
+		<ul>
+			<li>Earning: $80,000 USD</li>
+			<li>Items Sold: 8,000 Items</li>
+			<li>Last Hour Sales: $75,434 USD</li>
+		</ul>
+	</div>
+</div>
+<div class="sparkline">
+	<!--graph-->
+	<link rel="stylesheet" href="{% static 'css/graph.css' %}">
+	<script src="{% static 'js/jquery.flot.min.js' %}"></script>
+<!--//graph-->
+		<script>
+			$(document).ready(function () {
+			
+				// Graph Data ##############################################
+				var graphData = [{
+						// Returning Visits
+						data: [ [4, 4500], [5,3500], [6, 6550], [7, 7600],[8, 4500], [9,3500], [10, 6550], ],
+						color: '#FFCA28',
+						points: { radius: 7, fillColor: '#fff' }
+					}
+				];
+			
+				// Lines Graph #############################################
+				$.plot($('#graph-lines'), graphData, {
+					series: {
+						points: {
+							show: true,
+							radius: 1
+						},
+						lines: {
+							show: true
+						},
+						shadowSize: 0
+					},
+					grid: {
+						color: '#fff',
+						borderColor: 'transparent',
+						borderWidth: 10,
+						hoverable: true
+					},
+					xaxis: {
+						tickColor: 'transparent',
+						tickDecimals: false
+					},
+					yaxis: {
+						tickSize: 1200
+					}
+				});
+			
+				// Graph Toggle ############################################
+				$('#graph-bars').hide();
+			
+				$('#lines').on('click', function (e) {
+					$('#bars').removeClass('active');
+					$('#graph-bars').fadeOut();
+					$(this).addClass('active');
+					$('#graph-lines').fadeIn();
+					e.preventDefault();
+				});
+			
+				$('#bars').on('click', function (e) {
+					$('#lines').removeClass('active');
+					$('#graph-lines').fadeOut();
+					$(this).addClass('active');
+					$('#graph-bars').fadeIn().removeClass('hidden');
+					e.preventDefault();
+				});
+			
+			});
+		</script>
+		<div id="graph-wrapper">
+			<div class="graph-container">
+				<div id="graph-lines"> </div>
+				<div id="graph-bars"> </div>
+			</div>
+		</div>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+{% endblock %}
